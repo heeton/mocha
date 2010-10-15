@@ -101,6 +101,14 @@ module Mocha
       }
       expectation
     end
+    
+    def unstubs(*methods)
+      mockery = Mocha::Mockery.instance
+      methods.each { |m|
+        method = stubba_method.new(stubba_object, m)
+        mockery.stubba.unstub(method)
+      }
+    end
   
     def method_exists?(method, include_public_methods = true) # :nodoc:
       if include_public_methods

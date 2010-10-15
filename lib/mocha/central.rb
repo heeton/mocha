@@ -15,6 +15,13 @@ module Mocha
       end
     end
     
+    def unstub(method)
+      if stubba_methods.include?(method)
+        m = stubba_methods.delete(method)
+        m.unstub
+      end
+    end
+    
     def unstub_all
       while stubba_methods.length > 0
         method = stubba_methods.pop
