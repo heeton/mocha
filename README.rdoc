@@ -1,3 +1,11 @@
+== My updates
+
+This fork of mocha has a few extra features: 
+
+* 'runs' method - run some code when an expectation is hit. 
+* return blocks from expectations. 
+* unstub methods. 
+
 = Mocha
 
 Mocha is a library for mocking and stubbing using a syntax like that of {JMock}[http://www.jmock.org].
