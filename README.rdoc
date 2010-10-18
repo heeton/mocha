@@ -3,9 +3,12 @@
 This fork of mocha has a few extra features: 
 
 * 'runs' method - run some code when an expectation is hit. 
+	@object.expects(:method).runs{ run_some_method("Woo") }
 * return blocks from expectations. 
+	@object.expects(:method).returns{ @changing_variable }
 * unstub methods. 
-
+	@object.stubs(:method)
+	@object.unstubs(:method)
 = Mocha
 
 Mocha is a library for mocking and stubbing using a syntax like that of {JMock}[http://www.jmock.org].
