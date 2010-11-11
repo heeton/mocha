@@ -9,7 +9,7 @@ module Mocha
       
       module Version142AndAbove
         def self.included(mod)
-          warn "Monkey patching MiniTest >= v1.4.2" if $options['debug']
+          $stderr.puts "Monkey patching MiniTest >= v1.4.2" if $options['debug']
         end
         def run runner
           trap 'INFO' do
@@ -35,7 +35,7 @@ module Mocha
             ensure
               begin
                 self.teardown
-              rescue *PASSTHROUGH_EXCEPTIONS
+              rescue *::MiniTest::Unit::TestCase::PASSTHROUGH_EXCEPTIONS
                 raise
               rescue Exception => e
                 result = runner.puke(self.class, self.__name__, Mocha::Integration::MiniTest.translate(e))
